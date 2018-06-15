@@ -1,0 +1,45 @@
+.logo {
+  background-color: red;
+}
+
+.menu {
+  background-color: blue;
+}
+
+.request  {
+  margin: 10px;
+}
+
+.card-body  {
+  width: 100%;
+}
+
+.btn-group.special {
+  display: flex;
+}
+
+.special .btn {
+  flex: 1
+}
+
+.btn-group > .btn-group > .btn.dropdown-toggle {
+  margin-left: 0;
+  .border-radius(0);
+}
+.btn-group > .btn-group:last-child > .btn.dropdown-toggle {
+  margin-left: 0;
+  .border-top-right-radius(@baseBorderRadius);
+  .border-bottom-right-radius(@baseBorderRadius);
+  border-left: 1px;
+}
+.btn-group > .btn-group:first-child > .btn.dropdown-toggle {
+  margin-left: 0;
+  .border-top-left-radius(@baseBorderRadius);
+  .border-bottom-left-radius(@baseBorderRadius);
+  border-right:1px;
+}
+
+.send-request {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
