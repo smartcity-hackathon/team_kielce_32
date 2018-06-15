@@ -57,9 +57,9 @@
                         Wyślij zgłoszenie
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Straż miejska</a>
-                        <a class="dropdown-item" href="#">Miejski Zarząd Dróg</a>
-                        <a class="dropdown-item" href="#">Wodociągi</a>
+                        <a class="dropdown-item c1" href="#">Straż miejska</a>
+                        <a class="dropdown-item c2" href="#">Miejski Zarząd Dróg</a>
+                        <a class="dropdown-item c3" href="#">Wodociągi</a>
                     </div>
                 </div>
             </div>
@@ -80,6 +80,28 @@
 
         $('button.refuse').click(function(){
           $(this).parent().parent().parent().fadeOut();
+        });
+
+        $('.c1').click(function(){
+          $(this).ajax({
+            headers : {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            url : 'http://77.55.208.218:8080/issue/1',
+            type : 'PATCH',
+            data : JSON.stringify({description: "842490812321309213801923 gonzagazors"}),
+            success : function(response, textStatus, jqXhr) {
+                console.log("Venue Successfully Patched!");
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+                // log the error to the console
+                console.log("The following error occured: " + textStatus, errorThrown);
+            },
+            complete : function() {
+                console.log("Venue Patch Ran");
+            }
+        });
         });
     </script>
 </body>
