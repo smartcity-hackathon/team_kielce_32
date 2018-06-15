@@ -20,7 +20,7 @@ public class Issue {
 
     private String androidId;
 
-    private String imagePath;
+    private String imageFileName;
 
     private String address;
 
@@ -52,12 +52,12 @@ public class Issue {
         this.androidId = androidId;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public String getImageFileName() {
+        return imageFileName;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setImageFileName(String imageFileName) {
+        this.imageFileName = imageFileName;
     }
 
     public String getAddress() {
@@ -109,6 +109,6 @@ public class Issue {
     }
 
     public void setImage(File image) {
-        this.imagePath = image.getAbsolutePath();
+        this.imageFileName = image.getName();
     }
 }
