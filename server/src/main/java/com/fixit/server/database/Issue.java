@@ -1,12 +1,13 @@
 package com.fixit.server.database;
 
 import javax.persistence.*;
+import java.io.File;
 
 @Entity
 public class Issue {
 
     enum Status {
-        NEW, READ, FORWARDER, CANCELED, DONE
+        NEW, READ, FORWARDED, CANCELED, DONE
     }
 
     enum PublicService {
@@ -105,5 +106,9 @@ public class Issue {
 
     public void setPublicService(PublicService publicService) {
         this.publicService = publicService;
+    }
+
+    public void setImage(File image) {
+        this.imagePath = image.getAbsolutePath();
     }
 }
