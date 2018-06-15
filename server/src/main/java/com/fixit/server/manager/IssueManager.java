@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -28,7 +29,15 @@ public class IssueManager {
         File file = generateFile(multipartFile);
 
         issue.setImage(file);
+        issue.setCreated(new Date());
         issueRepository.save(issue);
+    }
+
+    public void changeStatus(Issue issue, Issue.Status status) {
+        issue.setStatus(status);
+        issueRepository.save(issue);
+
+        //@todo eventy, powiadomienia do userow itp
     }
 
     private File generateFile(MultipartFile multipartFile) throws IOException {
@@ -41,5 +50,7 @@ public class IssueManager {
 
         return file;
     }
+
+
 
 }
