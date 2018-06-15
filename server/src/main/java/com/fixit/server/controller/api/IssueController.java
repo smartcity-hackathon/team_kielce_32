@@ -4,18 +4,12 @@ import com.fixit.server.database.Issue;
 import com.fixit.server.database.IssueRepository;
 import com.fixit.server.manager.IssueManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.activation.FileTypeMap;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
-@RestController("/issue")
+@RestController("api-issue")
 public class IssueController {
 
     @Autowired
@@ -24,9 +18,7 @@ public class IssueController {
     @Autowired
     IssueRepository issueRepository;
 
-
-
-    @RequestMapping(method = RequestMethod.POST, value = "/add-issue")
+    @RequestMapping(method = RequestMethod.PUT, value = "/issue/add-issue")
     public void uploadPost(
             @RequestPart("file") MultipartFile multipartFile,
             @RequestPart("issue") Issue issue
@@ -35,9 +27,27 @@ public class IssueController {
         issueManager.addIssue(issue, multipartFile);
 
     }
-    @RequestMapping(method = RequestMethod.GET, value = "/")
+
+    @GetMapping("/issues")
     public Iterable<Issue> getIssues() {
         return issueRepository.findAll();
+    }
+
+    @GetMapping("/issue/{id}")
+    public Issue getIssue(@PathVariable("id") int id) {
+        return issueRepository.findById(id).get();
+    }
+
+    @PatchMapping("issue/{id}")
+    public Issue update(@RequestPart("issue") Issue issue) {
+        issueRepository.save(issue);
+        return issue;
+    }
+
+    @GetMapping("issue/statuses")
+    public Issue.Status[] getIssueStatuses() {
+        System.out.println(Issue.Status.values()[0].getPolishName());
+        return Issue.Status.values();
     }
 
 

@@ -1,16 +1,39 @@
 package com.fixit.server.database;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import javax.persistence.*;
 import java.io.File;
+import java.util.Date;
 
 @Entity
 public class Issue {
 
-    enum Status {
-        NEW, READ, FORWARDED, CANCELED, DONE
+    @JsonFormat(shape=JsonFormat.Shape.OBJECT)
+    public enum Status {
+        NEW, READ, FORWARDED, CANCELED, DONE;
+
+        static {
+            NEW.polishName = "nowy";
+        }
+
+        private String polishName;
+
+        @JsonProperty("polishName")
+        public String getPolishName() {
+            return polishName;
+        }
+
+        @JsonProperty("value")
+        public String getValue() {
+            return this.toString();
+        }
     }
 
-    enum PublicService {
+    public enum PublicService {
         ROAD_SERVICE, CLEANING_SERVICE
     }
 
@@ -24,9 +47,9 @@ public class Issue {
 
     private String address;
 
-    private long latiude;
+    private double latiude;
 
-    private long longitude;
+    private double longitude;
 
     private Status status;
 
@@ -35,6 +58,8 @@ public class Issue {
 
     @Column(nullable = true)
     private PublicService publicService;
+
+    private Date created;
 
     public Integer getId() {
         return id;
@@ -68,19 +93,19 @@ public class Issue {
         this.address = address;
     }
 
-    public long getLatiude() {
+    public double getLatiude() {
         return latiude;
     }
 
-    public void setLatiude(long latiude) {
+    public void setLatiude(double latiude) {
         this.latiude = latiude;
     }
 
-    public long getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(long longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -110,5 +135,13 @@ public class Issue {
 
     public void setImage(File image) {
         this.imageFileName = image.getName();
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }

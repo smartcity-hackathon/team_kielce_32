@@ -1,0 +1,11 @@
+.login-col  {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
