@@ -46,15 +46,67 @@
           <img src="test.jpg" class="img-fluid">
         </a>
       </div>
-
-
       <div class="card-body d-flex flex-column">
-        <h5 class="card-title">Data zgłoszenia:</h5>
+        <h5 class="card-title">Data zgłoszeasdasdasnia:</h5>
         <p class="card-text">Id: </p>
         <p class="card-text">Kategoria: </p>
         <p class="card-text">Lorem ipsum dolor sit amet</p>
         <div class="btn-group mt-auto special" role="group" aria-label="Basic example" style="width:100%;">
-          <button type="button" class="btn btn-danger"><i class="fas fa-ban"></i></button>
+          <button type="button" class="btn btn-danger refuse"><i class="fas fa-ban"></i></button>
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle send-request" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Wyślij zgłoszenie
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Straż miejska</a>
+              <a class="dropdown-item" href="#">Miejski Zarząd Dróg</a>
+              <a class="dropdown-item" href="#">Wodociągi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card request" style="width: 18rem;">
+      <!--<img class="card-img-top" src="pobrane.svg" alt="Card image cap"> -->
+      <div class="request-thumbnail">
+        <a href="test.jpg" data-toggle="lightbox">
+          <img src="test.jpg" class="img-fluid">
+        </a>
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Data zgłoszeasdasdasnia:</h5>
+        <p class="card-text">Id: </p>
+        <p class="card-text">Kategoria: </p>
+        <p class="card-text">Lorem ipsum dolor sit amet</p>
+        <div class="btn-group mt-auto special" role="group" aria-label="Basic example" style="width:100%;">
+          <button type="button" class="btn btn-danger refuse"><i class="fas fa-ban"></i></button>
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle send-request" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Wyślij zgłoszenie
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Straż miejska</a>
+              <a class="dropdown-item" href="#">Miejski Zarząd Dróg</a>
+              <a class="dropdown-item" href="#">Wodociągi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card request" style="width: 18rem;">
+      <!--<img class="card-img-top" src="pobrane.svg" alt="Card image cap"> -->
+      <div class="request-thumbnail">
+        <a href="test.jpg" data-toggle="lightbox">
+          <img src="test.jpg" class="img-fluid">
+        </a>
+      </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">Data zgłoszeasdasdasnia:</h5>
+        <p class="card-text">Id: </p>
+        <p class="card-text">Kategoria: </p>
+        <p class="card-text">Lorem ipsum dolor sit amet</p>
+        <div class="btn-group mt-auto special" role="group" aria-label="Basic example" style="width:100%;">
+          <button type="button" class="btn btn-danger refuse"><i class="fas fa-ban"></i></button>
           <div class="dropdown">
             <button class="btn btn-success dropdown-toggle send-request" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Wyślij zgłoszenie
@@ -77,6 +129,14 @@
                 event.preventDefault();
                 $(this).ekkoLightbox();
             });
+
+    $('a.dropdown-item').click(function(){
+      $(this).parent().parent().parent().parent().parent().fadeOut();
+    });
+
+    $('button.refuse').click(function(){
+      $(this).parent().parent().parent().fadeOut();
+    });
     </script>
   </body>
 </html>
