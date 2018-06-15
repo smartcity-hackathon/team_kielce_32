@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FixIt</string>
+    <string name="action_settings">Settings</string>
+    <string name="change_points">wymień punkty</string>
+    <string name="your_level">Twój poziom</string>
+    <string name="your_points">Twoje punkty</string>
+    <string name="report_issue">Zgłoś problem</string>
+    <string name="your_issues">Twoje zgłoszenia</string>
+
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_send">SendActivity</string>
+    <string name="images_file_path">Android/data/com.mehow.fixit/files/Pictures</string>
+    <string name="title_location_permission">Pozwól na pobranie lokacji gps</string>
+    <string name="text_location_permission">potrzebujemy lokacji do zgłoszenia usterki</string>
+    <string name="ok">OK</string>
+    <string name="send">Wyślij</string>
+</resources>
