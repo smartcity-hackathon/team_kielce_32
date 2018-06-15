@@ -51,7 +51,7 @@
             <p class="card-text" th:text="'Id: '+${i.id}"> </p>
             <p class="card-text" th:text="'opis: '+${i.description}"></p>
             <div class="btn-group mt-auto special" role="group" aria-label="Basic example" style="width:100%;">
-                <button type="button" class="btn btn-danger refuse"><i class="fas fa-ban"></i></button>
+                <button type="button" class="btn btn-danger refuse" data-toggle="tooltip" title="Odrzuć zgłoszenie"><i class="fas fa-ban"></i></button>
                 <div class="dropdown">
                     <button class="btn btn-success dropdown-toggle send-request" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Wyślij zgłoszenie
