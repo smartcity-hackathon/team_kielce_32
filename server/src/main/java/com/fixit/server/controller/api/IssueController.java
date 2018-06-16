@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Optional;
+import java.util.Date;
 
 @RestController("api-issue")
 public class IssueController {
@@ -27,6 +27,24 @@ public class IssueController {
 
         issueManager.addIssue(issue, multipartFile);
 
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/issue/add-issue-by-fuszerka/{latiude}/{longitude}/{description}")
+    public Issue uploadPostFuszerka(
+            @PathVariable("latiude") double latiude,
+            @PathVariable("longitude") double longitude,
+            @PathVariable("description") String description
+    ) throws IOException {
+        Issue issue = new Issue();
+
+        issue.setCreated(new Date());
+        issue.setImageFileName("test.jpg");
+        issue.setLatiude(latiude);
+        issue.setLongitude(longitude);
+        issue.setDescription(description);
+
+        issueRepository.save(issue);
+        return issue;
     }
 
     @GetMapping("/issues")
