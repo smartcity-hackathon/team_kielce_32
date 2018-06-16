@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "pl.example.mapviewapp"
+        applicationId "pl.example.publicserviceclient2"
         minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
@@ -25,9 +25,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile 'com.google.maps.android:android-maps-utils:0.5+'
-
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.google.android.gms:play-services-maps:15.0.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.volley:volley:1.1.0'
@@ -35,11 +33,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.android.support:multidex:1.0.3'
     implementation group: 'com.belladati', name: 'httpclientandroidlib', version: '4.3.0'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.android.gms:play-services-location:15.0.0'
     implementation 'com.google.android.gms:play-services-maps:15.0.1'
-    implementation 'com.google.android.gms:play-services-location:15.0.1'
-    compile 'org.json:json:20160212'
+
 }
