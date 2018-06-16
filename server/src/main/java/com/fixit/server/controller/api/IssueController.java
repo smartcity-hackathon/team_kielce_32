@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @RestController("api-issue")
 public class IssueController {
@@ -38,8 +39,10 @@ public class IssueController {
         return issueRepository.findById(id).get();
     }
 
+    @CrossOrigin("*")
     @PatchMapping("issue/{id}")
-    public Issue update(@RequestPart("issue") Issue issue) {
+    public Issue update(@RequestBody Issue issue, @PathVariable("id") int id) {
+        issue.setId(id);
         issueRepository.save(issue);
         return issue;
     }
@@ -50,5 +53,23 @@ public class IssueController {
         return Issue.Status.values();
     }
 
+    @GetMapping("issue/set-status/{id}/{status}")
+    public Issue setStatus(@PathVariable("id") int id, @PathVariable("status") Issue.Status status) {
+        Issue issue = issueRepository.findById(id).get();
+        issue.setStatus(status);
+        issueRepository.save(issue);
+        return issue;
+    }
 
+    @GetMapping("issue/set-public-service/{id}/{publicService}")
+    public Issue setPublicService(
+            @PathVariable("id") int id,
+            @PathVariable("publicService") Issue.PublicService publicService) {
+
+        Issue issue = issueRepository.findById(id).get();
+        issue.setPublicService(publicService);
+        issueRepository.save(issue);
+        return issue;
+
+    }
 }

@@ -34,7 +34,7 @@ public class Issue {
     }
 
     public enum PublicService {
-        ROAD_SERVICE, CLEANING_SERVICE
+        ROAD_SERVICE, CLEANING_SERVICE, CITY_GUARDS
     }
 
     @Id
